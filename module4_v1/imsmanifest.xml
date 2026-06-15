@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest identifier="RMIT_AI_Teaching_Module4_V1" version="1.2"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+  <organizations default="rmit_ai_org_m4">
+    <organization identifier="rmit_ai_org_m4">
+      <title>Chủ đề 4 – Ứng dụng AI tự động hoá các tác vụ hỗ trợ giảng dạy, học tập và quản lý giáo dục</title>
+      <item identifier="rmit_ai_item_m4" identifierref="rmit_ai_resource_m4">
+        <title>Chủ đề 4 – Ứng dụng AI tự động hoá các tác vụ hỗ trợ giảng dạy, học tập và quản lý giáo dục</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="rmit_ai_resource_m4" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html" />
+      <file href="styles.css" />
+      <file href="app.js" />
+      <file href="cover1.png" />
+      <file href="logo_MOET.png" />
+      <file href="logo_RMIT.png" />
+      <file href="youtube_ws4.png" />
+      <file href="new/sec1.pdf" />
+      <file href="new/sec2.pdf" />
+      <file href="new/sec3.pdf" />
+      <file href="Font/MuseoRMITVN-300.otf" />
+      <file href="Font/MuseoRMITVN-500.otf" />
+      <file href="Font/MuseoRMITVN-700.otf" />
+    </resource>
+  </resources>
+</manifest>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest identifier="RMIT_AI_Teaching_Module3_V1" version="1.2"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+  <organizations default="rmit_ai_org_m3">
+    <organization identifier="rmit_ai_org_m3">
+      <title>Chủ đề 3 – Sử dụng AI trong thiết kế bài tập bổ trợ, kiểm tra đánh giá, và tạo các ứng dụng, trò chơi, mô phỏng hỗ trợ học tập</title>
+      <item identifier="rmit_ai_item_m3" identifierref="rmit_ai_resource_m3">
+        <title>Chủ đề 3 – Sử dụng AI trong thiết kế bài tập bổ trợ, kiểm tra đánh giá, và tạo các ứng dụng, trò chơi, mô phỏng hỗ trợ học tập</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="rmit_ai_resource_m3" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html" />
+      <file href="styles.css" />
+      <file href="app.js" />
+      <file href="logo_MOET.png" />
+      <file href="logo_RMIT.png" />
+      <file href="ws3_cover.png" />
+      <file href="youtube_ws3.png" />
+      <file href="Font/MuseoRMITVN-300.otf" />
+      <file href="Font/MuseoRMITVN-500.otf" />
+      <file href="Font/MuseoRMITVN-700.otf" />
+    </resource>
+  </resources>
+</manifest>

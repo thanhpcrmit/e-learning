@@ -1,0 +1,825 @@
+/* ============================================================
+   Course Navigation Landing Page — RMIT E-Learning Portal
+   Audience: Vietnamese teachers. Clean, premium, modern.
+   ============================================================ */
+
+/* MuseoRMITVN — RMIT brand heading font (all weights) */
+@font-face {
+  font-family: 'MuseoRMITVN';
+  src: url('Font/MuseoRMITVN-300.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MuseoRMITVN';
+  src: url('Font/MuseoRMITVN-500.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MuseoRMITVN';
+  src: url('Font/MuseoRMITVN-700.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* — RMIT Brand Colours — */
+  --rmit-blue: #000054;      /* RMIT Blue — primary */
+  --rmit-red:  #E61E2A;      /* RMIT Red  — accent  */
+
+  /* Neutrals */
+  --bg:       #F8F9FC;       /* Light, clean slate background */
+  --panel:    #ffffff;
+  --bg-soft:  #F4F4F9;
+  --bg-softer:#FAFAFC;
+
+  /* Ink / text */
+  --ink:   #0d0d26;          /* Ink — deep navy/black */
+  --ink-2: #33334d;          /* body text */
+  --ink-3: #6e6e8c;          /* muted labels */
+
+  /* Lines */
+  --line:   #E2E2EC;
+  --line-2: #C8C8DC;
+
+  /* Brand Interaction */
+  --brand:       #000054;
+  --brand-hover: #00003A;
+  --brand-ink:   #000054;
+  --brand-tint:  #EBEBF5;
+  --brand-tint-2:#D6D6EC;
+
+  /* Accent (RMIT Red) */
+  --accent:       #E61E2A;
+  --accent-hover: #C4191F;
+  --accent-tint:  #FDECED;
+
+  /* Semantic */
+  --ok:      #1A7D4F;
+  --ok-tint: #E7F3EC;
+
+  /* Effects */
+  --ring:      0 0 0 4px rgba(0, 0, 84, 0.14);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 40, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 40, 0.06);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 40, 0.12);
+
+  /* Radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 18px;
+
+  --transition-speed: 0.4s;
+  --transition-cubic: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ---------- Basic Reset & Layout ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'MuseoRMITVN', 'Quicksand', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--rmit-blue);
+  text-wrap: balance;
+}
+
+p {
+  color: var(--ink-2);
+}
+
+strong { font-weight: 600; color: var(--ink); }
+a { color: var(--brand); text-decoration: none; }
+
+/* ---------- Main Container ---------- */
+.portal-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ---------- Logo Header Row ---------- */
+.portal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.25rem;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.logo-img {
+  height: auto;
+  max-height: 42px;
+  object-fit: contain;
+}
+
+.logo-moet {
+  max-width: 160px;
+}
+
+.logo-rmit {
+  max-width: 110px;
+}
+
+.header-meta {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  text-align: right;
+}
+
+/* ---------- Course Banner (Canvas Style) ---------- */
+.course-banner {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: var(--border-radius-lg);
+  background: url('course_banner_bg.png') no-repeat center center;
+  background-size: cover;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 84, 0.4), rgba(0, 0, 84, 0.1));
+}
+
+/* Floating Banner Card */
+.banner-card {
+  position: absolute;
+  bottom: 2rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  max-width: 620px;
+  background: var(--panel);
+  padding: 1.75rem 2rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  border-left: 6px solid var(--rmit-blue);
+  z-index: 10;
+  animation: slideInUp 0.8s var(--transition-cubic) both;
+}
+
+.banner-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--rmit-blue);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.banner-subtitle {
+  display: inline-block;
+  background: var(--rmit-red);
+  color: white;
+  padding: 0.4rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+/* Corner RMIT Brandmark in Banner */
+.banner-brandmark {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  background: var(--rmit-blue);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  z-index: 5;
+}
+
+.banner-brandmark img {
+  width: 32px;
+  height: auto;
+}
+
+/* ---------- Quick Summary Card ---------- */
+.summary-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--border-radius-lg);
+  padding: 2.25rem 2.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.summary-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.summary-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.meta-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--brand-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  font-size: 1.1rem;
+}
+
+.meta-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.meta-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Action Buttons Group */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.22s var(--transition-cubic);
+}
+
+.btn-primary {
+  background-color: var(--brand);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 84, 0.2);
+}
+
+.btn-secondary {
+  background-color: var(--panel);
+  color: var(--brand);
+  border-color: var(--line-2);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-soft);
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Modules Section ---------- */
+.section-title-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--rmit-blue);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 4px;
+  background: var(--rmit-red);
+  border-radius: 2px;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.module-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s var(--transition-cubic);
+  cursor: pointer;
+}
+
+.module-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--brand-tint-2);
+  box-shadow: var(--shadow-lg);
+}
+
+.module-img-container {
+  width: 100%;
+  height: 130px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+.module-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--transition-cubic);
+}
+
+.module-card:hover .module-img {
+  transform: scale(1.04);
+}
+
+.module-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 0, 84, 0.85);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.module-card-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.9rem;
+}
+
+.module-title {
+  min-height: 7rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.module-title-link {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rmit-blue);
+  line-height: 1.4;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.2s, color 0.2s;
+}
+
+.module-card:hover .module-title-link {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.module-desc {
+  font-size: 0.94rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.module-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--ink-3);
+  font-weight: 600;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.module-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.module-btn-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+}
+
+.module-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--brand);
+  transition: all 0.2s;
+}
+
+.module-card:hover .module-cta-btn {
+  color: var(--accent);
+}
+
+.module-cta-btn svg {
+  transition: transform 0.2s;
+}
+
+.module-card:hover .module-cta-btn svg {
+  transform: translateX(4px);
+}
+
+/* ---------- Drawer Component (Tài liệu tham khảo) ---------- */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 40, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 440px;
+  background: var(--panel);
+  z-index: 999;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--transition-speed) var(--transition-cubic);
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--rmit-blue);
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 300;
+  cursor: pointer;
+  color: var(--ink-3);
+  transition: color 0.2s;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.btn-close:hover {
+  color: var(--accent);
+  background: var(--bg-soft);
+}
+
+.drawer-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resource-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.resource-section h4 {
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--rmit-red);
+  font-weight: 700;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.4rem;
+}
+
+.resource-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.resource-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.75rem;
+  border-radius: var(--border-radius-sm);
+  background: var(--bg-softer);
+  border: 1px solid var(--line);
+  transition: all 0.2s;
+}
+
+.resource-link:hover {
+  background: var(--brand-tint);
+  border-color: var(--brand-tint-2);
+}
+
+.file-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.resource-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.res-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.res-desc {
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  line-height: 1.4;
+}
+
+/* ---------- Modal Component (Hướng dẫn chương trình) ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 40, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--panel);
+  border-radius: var(--border-radius-lg);
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s var(--transition-cubic);
+}
+
+.modal-overlay.open .modal {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-header {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rmit-blue);
+}
+
+.modal-body {
+  padding: 1.75rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.guide-block h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 0.5rem;
+}
+
+.guide-block p, .guide-block li {
+  font-size: 0.94rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+.guide-block ul {
+  padding-left: 1.25rem;
+  margin-top: 0.4rem;
+}
+
+.modal-footer {
+  padding: 1.25rem 1.75rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------- Portal Footer ---------- */
+.portal-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  margin-top: auto;
+}
+
+/* ---------- Animations ---------- */
+@keyframes slideInUp {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media (max-width: 1024px) {
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .modules-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portal-container {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .course-banner {
+    height: auto;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+  }
+
+  .banner-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 84, 0.8), rgba(0, 0, 84, 0.2));
+  }
+
+  .banner-card {
+    position: static;
+    max-width: 100%;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .banner-title {
+    font-size: 1.4rem;
+  }
+
+  .banner-brandmark {
+    display: none; /* Hide to prevent overlaying text on mobile */
+  }
+
+  .summary-card {
+    padding: 1.5rem;
+  }
+
+  .summary-text {
+    font-size: 0.96rem;
+  }
+}

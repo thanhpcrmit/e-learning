@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chủ đề 1 – Tổng quan và các phương thức ứng dụng AI hiệu quả cho nhà giáo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+
+  <!-- App Container -->
+  <div class="app-container">
+    
+    <!-- Main Workspace -->
+    <div class="main-workspace">
+      
+      <!-- Left Sidebar (Full Height) -->
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-top-banner">
+          <div class="banner-content">
+            <div class="brand-logo-container">
+              <img src="logo_MOET.png" class="brand-logo logo-moet" alt="Logo Bộ Giáo dục và Đào tạo" />
+              <img src="logo_RMIT.png" class="brand-logo logo-rmit" alt="Logo RMIT" />
+            </div>
+            <div class="brand-row">
+              <span class="brand-label">Chương trình tập huấn Nhà giáo với trợ lý trí tuệ nhân tạo (AI) trong giảng dạy và quản lý</span>
+            </div>
+            <h1 id="sidebar-course-title" class="sidebar-title">Chủ đề 1 – Tổng quan và các phương thức ứng dụng AI hiệu quả cho nhà giáo</h1>
+            <div class="progress-block">
+              <span id="progress-percent-label">33% hoàn thành</span>
+              <div class="progress-bar-total">
+                <div class="progress-bar-fill-total" id="progress-bar-fill-total" style="width: 33%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Navigation Items -->
+        <nav class="sidebar-nav">
+          <ul id="outline-list">
+            <!-- Outline items generated dynamically by JS -->
+          </ul>
+        </nav>
+
+        <!-- Sidebar Footer Controls (Resources Only) -->
+        <div class="sidebar-footer">
+          <button class="btn btn-secondary btn-icon-label" id="btn-resources" style="flex: 1;">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>
+            <span id="label-resources">Tài liệu</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Right Content Area -->
+      <main class="content-area">
+        
+        <!-- Mobile sidebar toggle -->
+        <button class="sidebar-toggle" id="btn-sidebar-toggle" aria-label="Mở mục lục khóa học">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+
+
+        <!-- Slide viewport wrapper for sliding animation -->
+        <div class="slide-viewport-wrapper">
+          <div class="glass-card" id="slide-viewport">
+            <!-- Dynamic slide contents rendered here -->
+            <div class="slide-loading">
+              <div class="spinner"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <footer class="slide-footer">
+          <button class="btn btn-secondary btn-icon-label" id="btn-prev" disabled>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+            <span id="btn-prev-text">Trước</span>
+          </button>
+          
+          <!-- Step indicator dots -->
+          <div class="step-indicator" id="step-indicator">
+            <!-- Dots generated dynamically -->
+          </div>
+          
+          <button class="btn btn-primary btn-icon-label" id="btn-next">
+            <span id="btn-next-text">Tiếp theo</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+        </footer>
+      </main>
+
+      <!-- Sidebar scrim (mobile) -->
+      <div class="sidebar-scrim" id="sidebar-scrim"></div>
+
+    </div>
+
+    <!-- Interactive Quiz Feedback Overlay -->
+    <div class="modal-overlay" id="quiz-feedback-overlay">
+      <div class="feedback-modal">
+        <div class="feedback-modal-icon-container" id="feedback-modal-icon-container">
+          <!-- Dynamically populated svg circle check/cross -->
+        </div>
+        <div class="feedback-modal-status" id="feedback-modal-status">Chưa chính xác</div>
+        <div class="feedback-modal-body" id="feedback-modal-body">
+          Giải thích kết quả câu hỏi.
+        </div>
+        <div class="feedback-modal-footer" id="feedback-modal-footer">
+          Nếu trả lời chưa đúng, hãy ôn tập lại.
+        </div>
+        <button class="btn btn-primary" id="btn-close-feedback-modal">Tiếp tục</button>
+      </div>
+    </div>
+
+    <!-- Resources Drawer -->
+    <div class="drawer-overlay" id="resources-drawer-overlay"></div>
+    <div class="drawer" id="resources-drawer">
+      <div class="drawer-header">
+        <h3 id="drawer-title">Tài liệu học tập & Tham khảo</h3>
+        <button class="btn-close" id="btn-close-drawer" aria-label="Close drawer">&times;</button>
+      </div>
+      <div class="drawer-content">
+        <div class="resource-section">
+          <h4 id="res-section-read">Tài liệu đọc chính</h4>
+          <ul class="resource-list">
+            <li>
+              <a href="https://aiforeducation.io/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                <span class="file-icon">📄</span>
+                <div class="resource-info">
+                  <strong class="res-title-1">Sổ tay hướng dẫn viết câu lệnh (Prompt guide)</strong>
+                  <span class="res-desc-1">Tổng hợp kỹ năng viết prompt và các mẫu câu lệnh thực tế cho nhà giáo.</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="resource-section">
+          <h4 id="res-section-videos">Video minh họa (GenAI & Ứng dụng)</h4>
+          <ul class="resource-list">
+            <li>
+              <a href="https://www.youtube.com/watch?v=RajKtdz9TYw" target="_blank" rel="noopener noreferrer" class="resource-link">
+                <span class="file-icon">📺</span>
+                <div class="resource-info">
+                  <strong class="res-title-2">Clip: Tổng quan về AI tạo sinh (GenAI)</strong>
+                  <span class="res-desc-2">Tìm hiểu nguyên lý dự đoán từ ngữ của các mô hình ngôn ngữ lớn.</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=7GvIjNuJXMk" target="_blank" rel="noopener noreferrer" class="resource-link">
+                <span class="file-icon">📺</span>
+                <div class="resource-info">
+                  <strong class="res-title-3">Clip: Cách AI hỗ trợ soạn bài giảng tự động</strong>
+                  <span class="res-desc-3">Minh họa thực tế ứng dụng AI để tạo khung bài học và đề xuất hoạt động nhóm.</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js?v=5"></script>
+</body>
+</html>
